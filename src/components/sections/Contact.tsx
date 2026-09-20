@@ -5,10 +5,10 @@ import { MapPin, Phone, Mail, Building2, Clock } from "lucide-react";
 import Link from "next/link";
 
 export default function Contact() {
-  const whatsappUrl = "https://wa.me/6281237135940?text=Halo%20PT%20HEKA%20Sejahtera%20Bersama,%20saya%20ingin%20berkonsultasi%20mengenai%20proyek%20konstruksi.";
+  const whatsappUrl = "https://wa.me/6281237135940?text=Halo%20CV%20Wilwa%20Karya%20Mandiri,%20saya%20ingin%20berkonsultasi%20mengenai%20proyek%20konstruksi.";
 
   return (
-    <footer id="contact" className="bg-slate-900 text-white pt-24 pb-8 relative overflow-hidden">
+    <footer id="contact" className="bg-black text-white pt-24 pb-8 relative overflow-hidden">
       {/* Abstract shapes */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/20 -skew-x-12 origin-bottom-right"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
@@ -18,19 +18,21 @@ export default function Contact() {
           
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="bg-accent text-primary p-2 rounded-lg">
-                <Building2 className="w-8 h-8" />
-              </div>
+            <a href="https://www.instagram.com/wilwakaryamandiri?stkn=MWhhMmZjd3V5Mm0xNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-6 hover:opacity-90 transition-opacity">
+              <img 
+                src="/assets/images/merk.jpeg" 
+                alt="Logo CV Wilwa Karya Mandiri" 
+                className="h-14 w-auto object-contain rounded-md bg-white p-1"
+              />
               <div className="flex flex-col">
                 <span className="font-bold text-xl leading-tight text-white">
-                  PT. HEKA
+                  CV. WILWA
                 </span>
-                <span className="text-xs font-semibold tracking-wider text-accent">
-                  SEJAHTERA BERSAMA
+                <span className="text-[10px] font-bold tracking-widest text-accent uppercase">
+                  Karya Mandiri
                 </span>
               </div>
-            </div>
+            </a>
             <p className="text-slate-300 leading-relaxed text-sm pr-4">
               Mewujudkan konstruksi impian Anda dengan presisi dan kualitas unggul. Kontraktor Umum terpercaya yang melayani perencanaan, pembangunan, hingga perawatan interior dan eksterior.
             </p>
@@ -44,7 +46,7 @@ export default function Contact() {
           <div className="lg:col-span-3">
             <h3 className="font-bold text-lg mb-6 text-white border-b border-slate-700 pb-3 inline-block">Tautan Navigasi</h3>
             <ul className="space-y-4">
-              {['Beranda', 'Tentang Kami', 'Layanan', 'Portofolio', 'Legalitas'].map((item) => (
+              {['Beranda', 'Tentang Kami', 'Layanan', 'Portofolio', 'Klien'].map((item) => (
                 <li key={item}>
                   <Link href={`#${item === 'Beranda' ? 'home' : item === 'Tentang Kami' ? 'about' : item === 'Layanan' ? 'services' : item === 'Portofolio' ? 'portfolio' : 'clients'}`} className="text-slate-300 hover:text-accent transition-colors flex items-center gap-2 text-sm">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span> {item}
@@ -64,9 +66,9 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-medium text-white mb-1">Kantor Pusat</p>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  Jl. Bangah Jaya Indah No. 225, RT.04 RW.07, Desa Bangah, Kec. Gedangan, Kab. Sidoarjo, Jawa Timur 61254
-                </p>
+                <a href="https://share.google/L0HmSCkl59LGEynh2" target="_blank" rel="noopener noreferrer" className="text-slate-300 text-sm leading-relaxed hover:text-accent transition-colors block">
+                  Jalan Kalikepiting Jaya I No 44
+                </a>
               </div>
             </div>
             
@@ -80,9 +82,6 @@ export default function Contact() {
                   <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-slate-300 text-sm hover:text-accent transition-colors">
                     +62 812-3713-5940
                   </a>
-                  <a href="tel:+6282338246867" className="text-slate-300 text-sm hover:text-accent transition-colors">
-                    +62 823-3824-6867
-                  </a>
                 </div>
               </div>
             </div>
@@ -93,8 +92,8 @@ export default function Contact() {
               </div>
               <div>
                 <p className="font-medium text-white mb-1">Email</p>
-                <a href="mailto:pthekasejahterabersama@gmail.com" className="text-slate-300 text-sm hover:text-accent transition-colors break-all">
-                  pthekasejahterabersama@gmail.com
+                <a href="mailto:wilwakaryamandiri@gmail.com" className="text-slate-300 text-sm hover:text-accent transition-colors break-all">
+                  wilwakaryamandiri@gmail.com
                 </a>
               </div>
             </div>
@@ -116,7 +115,7 @@ export default function Contact() {
         {/* Copyright */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-400 text-sm text-center md:text-left">
-            &copy; {new Date().getFullYear()} PT HEKA SEJAHTERA BERSAMA. All Rights Reserved.
+            &copy; {new Date().getFullYear()} CV WILWA KARYA MANDIRI. All Rights Reserved.
           </p>
           <div className="flex gap-4">
             <Link href="#" className="text-slate-400 hover:text-white text-sm">Privacy Policy</Link>

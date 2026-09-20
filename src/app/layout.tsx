@@ -8,9 +8,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "PT HEKA SEJAHTERA BERSAMA | General Contractor Jawa Timur",
+  title: "CV WILWA KARYA MANDIRI | General Contractor Jawa Timur",
   description: "Kontraktor Umum terpercaya sejak 2010 di Jawa Timur. Melayani perencanaan, pembangunan, hingga perawatan interior dan eksterior skala individu maupun perusahaan.",
-  keywords: ["Jasa Kontraktor Sidoarjo", "Kontraktor Surabaya", "Kontraktor Jawa Timur", "PT HEKA Sejahtera Bersama", "Renovasi Rumah", "Pembangunan Gedung"],
+  keywords: ["Jasa Kontraktor Sidoarjo", "Kontraktor Surabaya", "Kontraktor Jawa Timur", "CV Wilwa Karya Mandiri", "Renovasi Rumah", "Pembangunan Gedung"],
 };
 
 export default function RootLayout({

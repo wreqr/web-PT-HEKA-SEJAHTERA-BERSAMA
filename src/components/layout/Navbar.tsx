@@ -10,7 +10,7 @@ const navLinks = [
   { name: "Tentang Kami", href: "#about" },
   { name: "Layanan", href: "#services" },
   { name: "Portofolio", href: "#portfolio" },
-  { name: "Klien & Legalitas", href: "#clients" },
+  { name: "Klien", href: "#clients" },
 ];
 
 export default function Navbar() {
@@ -35,19 +35,21 @@ export default function Navbar() {
     >
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          <Link href="#home" className="flex items-center gap-2 group">
-            <div className="bg-primary text-white p-2 rounded-lg group-hover:bg-accent group-hover:text-primary transition-colors">
-              <Building2 className="w-6 h-6" />
-            </div>
+          <a href="https://www.instagram.com/wilwakaryamandiri?stkn=MWhhMmZjd3V5Mm0xNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
+            <img 
+              src="/assets/images/merk.jpeg" 
+              alt="Logo CV Wilwa Karya Mandiri" 
+              className="h-10 w-auto object-contain rounded-md shadow-sm"
+            />
             <div className="flex flex-col">
               <span className={`font-bold text-lg leading-tight ${isScrolled ? "text-primary" : "text-primary md:text-white"}`}>
-                PT. HEKA
+                CV. WILWA
               </span>
-              <span className={`text-xs font-semibold tracking-wider ${isScrolled ? "text-accent" : "text-accent"}`}>
-                SEJAHTERA BERSAMA
+              <span className={`text-[10px] font-bold tracking-widest uppercase ${isScrolled ? "text-accent" : "text-accent"}`}>
+                Karya Mandiri
               </span>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">

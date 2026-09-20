@@ -37,18 +37,10 @@ const clients = [
     type: "image"
   },
   { 
-    name: "Clarisa Clinic", 
-    image: null,
-    type: "custom",
-    render: () => (
-      <div className="flex flex-col items-center justify-center">
-        <div className="w-14 h-14 bg-[#6A1B57] rounded-full flex items-center justify-center border-2 border-white mb-1">
-          <span className="text-white font-serif text-xl italic font-bold">C</span>
-        </div>
-        <span className="text-[#6A1B57] font-bold text-xs uppercase">Clarisa</span>
-        <span className="text-[#6A1B57] text-[0.5rem] tracking-wider uppercase">Skin & Beauty</span>
-      </div>
-    )
+    name: "Pagi Pagi Coffee Shop", 
+    image: "/assets/logos/pagi coffe.png",
+    type: "image",
+    link: "https://www.instagram.com/pagipagicoffee_hrmuhammad/"
   },
 ];
 
@@ -64,35 +56,57 @@ export default function Clients() {
             Dipercaya Oleh Berbagai <span className="text-primary">Klien Kami</span>
           </h2>
           <p className="text-slate-600 text-lg leading-relaxed">
-            PT. HEKA Sejahtera Bersama telah membangun reputasi dan hubungan baik dengan klien dari berbagai sektor. Perusahaan kami akan terus mengembangkan hubungan baik dengan berbagai pihak sehingga kualitas perusahaan kami terus meningkat.
+            CV Wilwa Karya Mandiri telah membangun reputasi dan hubungan baik dengan klien dari berbagai sektor. Perusahaan kami akan terus mengembangkan hubungan baik dengan berbagai pihak sehingga kualitas perusahaan kami terus meningkat.
           </p>
         </div>
 
         {/* Grid of Clients */}
         <div className="grid grid-cols-2 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
-          {clients.map((client, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white hover:bg-slate-50 border border-slate-200 shadow-sm rounded-xl p-6 flex flex-col items-center justify-center text-center transition-all cursor-pointer h-40 group hover:shadow-md"
-            >
-              <div className="h-20 w-full flex items-center justify-center mb-3">
-                {client.type === 'image' ? (
-                  <img 
-                    src={client.image!} 
-                    alt={client.name} 
-                    className="max-h-full max-w-[80%] object-contain group-hover:scale-105 transition-transform" 
-                  />
-                ) : (
-                  client.render && client.render()
-                )}
-              </div>
-              <h3 className="text-slate-800 font-bold text-sm">{client.name}</h3>
-            </motion.div>
-          ))}
+          {clients.map((client: any, index) => {
+            const content = (
+              <>
+                <div className="h-20 w-full flex items-center justify-center mb-3">
+                  {client.type === 'image' ? (
+                    <img 
+                      src={client.image!} 
+                      alt={client.name} 
+                      className="max-h-full max-w-[80%] object-contain group-hover:scale-105 transition-transform" 
+                    />
+                  ) : (
+                    client.render && client.render()
+                  )}
+                </div>
+                <h3 className="text-slate-800 font-bold text-sm">{client.name}</h3>
+              </>
+            );
+
+            return client.link ? (
+              <motion.a
+                href={client.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white hover:bg-slate-50 border border-slate-200 shadow-sm rounded-xl py-6 px-4 flex flex-col items-center justify-center text-center transition-all cursor-pointer h-auto min-h-[10rem] group hover:shadow-md no-underline"
+              >
+                {content}
+              </motion.a>
+            ) : (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white hover:bg-slate-50 border border-slate-200 shadow-sm rounded-xl py-6 px-4 flex flex-col items-center justify-center text-center transition-all cursor-pointer h-auto min-h-[10rem] group hover:shadow-md"
+              >
+                {content}
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>

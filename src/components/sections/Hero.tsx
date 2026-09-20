@@ -73,33 +73,33 @@ export default function Hero() {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.5 }}
-        className="absolute bottom-0 left-0 w-full translate-y-1/2 z-20 px-4 md:px-8"
+        className="relative lg:absolute lg:bottom-0 left-0 w-full lg:translate-y-1/2 z-20 px-4 md:px-8 mt-12 lg:mt-0 pb-12 lg:pb-0"
       >
         <div className="container mx-auto">
-          <div className="bg-white rounded-2xl shadow-xl p-8 grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100">
-            <div className="flex items-center gap-4 justify-center md:justify-start">
+          <div className="bg-white rounded-2xl shadow-xl p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 justify-center md:justify-start">
               <div className="w-14 h-14 rounded-full bg-primary/5 flex items-center justify-center text-primary shrink-0">
                 <span className="text-2xl font-black">14+</span>
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="font-bold text-slate-800">Tahun Pengalaman</h3>
                 <p className="text-sm text-slate-500">Sejak 2010</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 justify-center md:justify-start md:pl-8 pt-6 md:pt-0">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 justify-center md:justify-start md:pl-8 pt-6 md:pt-0">
               <div className="w-14 h-14 rounded-full bg-accent/10 flex items-center justify-center text-accent shrink-0">
                 <span className="text-2xl font-black">100+</span>
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="font-bold text-slate-800">Proyek Selesai</h3>
                 <p className="text-sm text-slate-500">Hunian & Komersial</p>
               </div>
             </div>
-            <div className="flex items-center gap-4 justify-center md:justify-start md:pl-8 pt-6 md:pt-0">
+            <div className="flex flex-col md:flex-row items-center gap-3 md:gap-4 justify-center md:justify-start md:pl-8 pt-6 md:pt-0">
               <div className="w-14 h-14 rounded-full bg-green-50 flex items-center justify-center text-green-600 shrink-0">
                 <CheckCircle2 className="w-7 h-7" />
               </div>
-              <div>
+              <div className="text-center md:text-left">
                 <h3 className="font-bold text-slate-800">100% Legalitas</h3>
                 <p className="text-sm text-slate-500">Kemenkumham & NIB</p>
               </div>

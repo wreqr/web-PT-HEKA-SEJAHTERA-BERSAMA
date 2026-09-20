@@ -25,10 +25,10 @@ export default function About() {
             
             <div className="prose prose-slate prose-lg text-slate-600 mb-8">
               <p className="mb-4">
-                <strong className="text-primary">PT. HEKA Sejahtera Bersama</strong> adalah perusahaan yang bergerak di bidang jasa konstruksi. Perusahaan kami memiliki spesialisasi dalam <strong className="text-slate-800">perencanaan hingga pelaksanaan interior maupun eksterior</strong>. Kami juga melayani maintenance gedung perkantoran, konstruksi bangunan komersial skala besar, konstruksi baja, residensial, dan lain-lain.
+                <strong className="text-primary">CV Wilwa Karya Mandiri</strong> adalah perusahaan yang bergerak di bidang jasa konstruksi. Perusahaan kami memiliki spesialisasi dalam <strong className="text-slate-800">perencanaan hingga pelaksanaan interior maupun eksterior</strong>. Kami juga melayani maintenance gedung perkantoran, konstruksi bangunan komersial skala besar, konstruksi baja, residensial, dan lain-lain.
               </p>
               <p className="mb-4">
-                Berdiri sejak tahun 2010 di Jl. Bangah Jaya Indah No. 225, Sidoarjo, kami memiliki keinginan untuk memenuhi kebutuhan masyarakat akan kualitas konstruksi yang unggul khususnya di Jawa Timur.
+                Berdiri sejak tahun 2010 di Jalan Kalikepiting Jaya I No 44, kami memiliki keinginan untuk memenuhi kebutuhan masyarakat akan kualitas konstruksi yang unggul khususnya di Jawa Timur.
               </p>
               <p>
                 Perusahaan kami terdiri dari para profesional yang berpengalaman sehingga kami yakin dapat memberikan layanan yang <strong className="text-slate-800">berkualitas tinggi</strong>. Kami menyediakan layanan <strong className="text-slate-800">komprehensif</strong> mulai dari desain, rekayasa konstruksi, hingga manajemen untuk membangun hubungan jangka panjang yang baik dengan klien kami.

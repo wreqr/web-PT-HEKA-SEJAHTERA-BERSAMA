@@ -77,11 +77,11 @@ export default function Services() {
         >
           <Tabs defaultValue="perusahaan" className="w-full">
             <div className="flex justify-center mb-10">
-              <TabsList className="grid w-full max-w-md grid-cols-2 p-1.5 bg-slate-200/50 rounded-xl h-14">
-                <TabsTrigger value="individual" className="rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-base font-medium h-full border-none">
+              <TabsList className="grid w-full max-w-md grid-cols-2 p-1 sm:p-1.5 bg-slate-200/50 rounded-xl h-auto sm:h-14 gap-1 sm:gap-0">
+                <TabsTrigger value="individual" className="rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-xs sm:text-sm md:text-base font-medium h-full py-2 sm:py-0 border-none whitespace-normal text-center leading-tight">
                   Individual (Hunian)
                 </TabsTrigger>
-                <TabsTrigger value="perusahaan" className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-sm text-base font-medium h-full border-none">
+                <TabsTrigger value="perusahaan" className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-sm text-xs sm:text-sm md:text-base font-medium h-full py-2 sm:py-0 border-none whitespace-normal text-center leading-tight">
                   Perusahaan (Komersial)
                 </TabsTrigger>
               </TabsList>
