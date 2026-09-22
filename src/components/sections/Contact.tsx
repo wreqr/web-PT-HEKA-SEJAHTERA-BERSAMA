@@ -12,16 +12,16 @@ export default function Contact() {
       {/* Abstract shapes */}
       <div className="absolute top-0 right-0 w-1/2 h-full bg-primary/20 -skew-x-12 origin-bottom-right"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent/10 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2"></div>
-      
+
       <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 mb-16">
-          
+
           {/* Brand Info */}
           <div className="lg:col-span-4 space-y-6">
             <a href="https://www.instagram.com/wilwakaryamandiri?stkn=MWhhMmZjd3V5Mm0xNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-6 hover:opacity-90 transition-opacity">
-              <img 
-                src="/assets/images/merk.jpeg" 
-                alt="Logo CV Wilwa Karya Mandiri" 
+              <img
+                src="/assets/images/merk.jpeg"
+                alt="Logo CV Wilwa Karya Mandiri"
                 className="h-14 w-auto object-contain rounded-md bg-white p-1"
               />
               <div className="flex flex-col">
@@ -38,10 +38,10 @@ export default function Contact() {
             </p>
             <div className="flex items-center gap-3 text-slate-400 text-sm">
               <Clock className="w-4 h-4 text-accent" />
-              Senin - Jumat (08:00 - 17:00 WIB)
+              Senin - Minggu (08:00 - 17:00 WIB)
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div className="lg:col-span-3">
             <h3 className="font-bold text-lg mb-6 text-white border-b border-slate-700 pb-3 inline-block">Tautan Navigasi</h3>
@@ -55,11 +55,11 @@ export default function Contact() {
               ))}
             </ul>
           </div>
-          
+
           {/* Contact Details */}
           <div className="lg:col-span-5 space-y-6">
             <h3 className="font-bold text-lg mb-6 text-white border-b border-slate-700 pb-3 inline-block">Hubungi Kami</h3>
-            
+
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shrink-0">
                 <MapPin className="w-5 h-5" />
@@ -71,7 +71,7 @@ export default function Contact() {
                 </a>
               </div>
             </div>
-            
+
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shrink-0">
                 <Phone className="w-5 h-5" />
@@ -85,7 +85,7 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-            
+
             <div className="flex gap-4">
               <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-accent shrink-0">
                 <Mail className="w-5 h-5" />
@@ -98,7 +98,7 @@ export default function Contact() {
               </div>
             </div>
 
-            <motion.a 
+            <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               href={whatsappUrl}
@@ -109,9 +109,9 @@ export default function Contact() {
               Chat via WhatsApp Sekarang
             </motion.a>
           </div>
-          
+
         </div>
-        
+
         {/* Copyright */}
         <div className="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-slate-400 text-sm text-center md:text-left">
