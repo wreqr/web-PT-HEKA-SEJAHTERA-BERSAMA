@@ -5,7 +5,7 @@ import { Target, Eye } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="pt-10 pb-16 lg:pt-24 lg:pb-24 bg-white relative overflow-hidden">
+    <section id="about" className="pt-14 pb-12 lg:pt-24 lg:pb-16 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

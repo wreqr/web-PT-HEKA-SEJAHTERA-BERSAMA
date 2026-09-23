@@ -42,7 +42,7 @@ export default function Navbar() {
               className="h-10 w-auto object-contain rounded-md shadow-sm"
             />
             <div className="flex flex-col">
-              <span className={`font-bold text-lg leading-tight ${isScrolled ? "text-primary" : "text-primary md:text-white"}`}>
+              <span className={`font-bold text-lg leading-tight ${isScrolled ? "text-primary" : "text-white"}`}>
                 CV. WILWA
               </span>
               <span className={`text-[10px] font-bold tracking-widest uppercase ${isScrolled ? "text-accent" : "text-accent"}`}>

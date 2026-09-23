@@ -120,43 +120,6 @@ const wilwaSlides: WilwaSlide[] = [
   }
 ];
 
-const otherProjects = [
-  {
-    title: "Pembangunan Kost 3 Lantai",
-    location: "Joyogrand Malang",
-    year: "",
-    image: "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2000&auto=format&fit=crop",
-    category: "Residensial"
-  },
-  {
-    title: "Pembuatan Furnitur Pusdiklek Kodiklatal",
-    location: "Surabaya",
-    year: "",
-    image: "https://images.unsplash.com/photo-1581428982868-e410dd047a90?q=80&w=2000&auto=format&fit=crop",
-    category: "Komersial & Interior"
-  },
-  {
-    title: "Pembangunan Restoran Ramen Master",
-    location: "Jl. Lontar Surabaya",
-    year: "",
-    image: "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?q=80&w=2000&auto=format&fit=crop",
-    category: "Komersial"
-  },
-  {
-    title: "Renovasi Kantor MPM Finance",
-    location: "Jl. Kartini Surabaya",
-    year: "",
-    image: "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop",
-    category: "Perkantoran"
-  },
-  {
-    title: "Penggantian Ducting AC Hotel Oak Wood",
-    location: "Surabaya",
-    year: "",
-    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop",
-    category: "Hospitality / Maintenance"
-  }
-];
 
 export default function Portfolio() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -175,12 +138,28 @@ export default function Portfolio() {
     return () => clearInterval(timer);
   }, [isAutoPlaying]);
 
-  // Scroll active thumbnail into view
+  // Escape key listener for lightbox
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && lightboxImage) {
+        setLightboxImage(null);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxImage]);
+
+  // Scroll active thumbnail into view without hijacking page scroll
   useEffect(() => {
     if (thumbnailsRef.current) {
       const activeThumb = thumbnailsRef.current.children[currentSlide] as HTMLElement;
       if (activeThumb) {
-        activeThumb.scrollIntoView({ behavior: "smooth", inline: "center", block: "nearest" });
+        const container = thumbnailsRef.current;
+        const scrollLeft = activeThumb.offsetLeft - (container.clientWidth / 2) + (activeThumb.clientWidth / 2);
+        container.scrollTo({
+          left: scrollLeft,
+          behavior: "smooth"
+        });
       }
     }
   }, [currentSlide]);
@@ -239,8 +218,8 @@ export default function Portfolio() {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-accent animate-pulse"></span>
-              <h3 className="text-xl md:text-2xl font-bold text-slate-900">
-                Dokumentasi Hasil Kerja <span className="text-primary">CV Wilwa Karya Mandiri</span>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 leading-tight">
+                Dokumentasi Hasil Kerja <span className="text-primary block sm:inline mt-1 sm:mt-0">CV Wilwa Karya Mandiri</span>
               </h3>
             </div>
             <div className="hidden sm:flex items-center gap-2 text-sm font-semibold text-slate-500">
@@ -257,7 +236,7 @@ export default function Portfolio() {
             onMouseLeave={() => setIsAutoPlaying(true)}
           >
             {/* Image Container */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-[21/9] w-full overflow-hidden bg-slate-950">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] lg:aspect-[21/9] w-full overflow-hidden bg-slate-950">
               <AnimatePresence initial={false} custom={direction} mode="wait">
                 <motion.div
                   key={currentSlide}
@@ -318,12 +297,17 @@ export default function Portfolio() {
             <div className="p-5 sm:p-7 bg-slate-900 text-white border-t border-white/10">
               <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div className="max-w-3xl">
-                  <div className="flex flex-wrap items-center gap-2 mb-2.5">
-                    <span className="px-2.5 py-1 rounded-md bg-accent text-primary text-xs font-bold uppercase tracking-wider">
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-3">
+                    <span className="inline-block w-fit px-2.5 py-1 rounded-md bg-accent text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                       {current.category}
                     </span>
-                    <span className="text-slate-400 text-xs sm:text-sm font-medium">
-                      • {current.location}
+                    <span className="text-slate-400 text-xs sm:text-sm font-medium flex items-center gap-1.5">
+                      <span className="hidden sm:inline">•</span>
+                      <svg className="w-3.5 h-3.5 sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                      {current.location}
                     </span>
                   </div>
                   <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-snug">
@@ -335,7 +319,7 @@ export default function Portfolio() {
                 </div>
 
                 {/* Counter and Navigation Controls */}
-                <div className="flex items-center justify-between md:flex-col md:items-end gap-3 pt-3 md:pt-0 border-t md:border-t-0 border-white/10 shrink-0">
+                <div className="flex items-center justify-between md:flex-col md:items-end gap-3 mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/10 shrink-0">
                   <span className="text-xs text-slate-400 font-medium">
                     Foto <strong className="text-accent text-sm font-bold">{currentSlide + 1}</strong> dari {wilwaSlides.length}
                   </span>
@@ -400,63 +384,6 @@ export default function Portfolio() {
           </div>
         </div>
 
-        {/* OTHER COMPLETED PROJECTS */}
-        <div>
-          <div className="flex items-center gap-2 mb-8">
-            <div className="h-6 w-1 rounded-full bg-primary"></div>
-            <h3 className="text-xl md:text-2xl font-bold text-slate-900">
-              Portofolio Proyek Klien Lainnya
-            </h3>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {otherProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="group cursor-pointer"
-                onClick={() => setLightboxImage(project)}
-              >
-                <div className="relative overflow-hidden rounded-2xl aspect-[4/3] mb-6 shadow-md border border-slate-100">
-                  <div className="absolute inset-0 bg-primary/10 group-hover:bg-primary/0 transition-colors z-10 duration-500"></div>
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="object-cover w-full h-full group-hover:scale-110 transition-transform duration-700 ease-in-out"
-                  />
-
-                  {/* Year tag if present */}
-                  {project.year && (
-                    <div className="absolute top-4 right-4 z-20 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full text-sm font-bold text-primary shadow-sm">
-                      {project.year}
-                    </div>
-                  )}
-
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 flex flex-col justify-end p-8">
-                    <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary translate-y-8 group-hover:translate-y-0 opacity-0 group-hover:opacity-100 transition-all duration-500 shadow-lg">
-                      <ArrowUpRight className="w-6 h-6" />
-                    </div>
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-accent font-semibold text-sm mb-2">{project.category}</p>
-                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-primary transition-colors mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-slate-500 text-sm flex items-center gap-2">
-                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span> {project.location}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-
       </div>
 
       {/* Lightbox Preview Modal */}
@@ -466,53 +393,68 @@ export default function Portfolio() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-md flex flex-col items-center justify-between p-3 sm:p-5 md:p-6 overflow-y-auto"
             onClick={() => setLightboxImage(null)}
           >
-            <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.9, opacity: 0 }}
-              className="relative max-w-5xl w-full bg-slate-900 rounded-2xl overflow-hidden shadow-2xl border border-white/10"
-              onClick={(e) => e.stopPropagation()}
-            >
+            {/* Top Bar with Close Button */}
+            <div className="w-full max-w-6xl flex items-center justify-end shrink-0 pb-2">
               <button
                 onClick={() => setLightboxImage(null)}
-                className="absolute top-4 right-4 z-30 p-2.5 rounded-full bg-black/60 text-white hover:bg-black/90 transition-colors"
-                aria-label="Tutup"
+                className="p-2 sm:px-4 sm:py-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all cursor-pointer border border-white/10 flex items-center gap-2 text-xs font-semibold backdrop-blur-sm"
+                aria-label="Tutup Layar Penuh"
+                title="Tutup (Esc)"
               >
+                <span className="hidden sm:inline">Tutup</span>
                 <X className="w-5 h-5" />
               </button>
+            </div>
 
-              <div className="relative aspect-[16/10] w-full bg-black flex items-center justify-center">
-                <img
-                  src={lightboxImage.image}
-                  alt={lightboxImage.title}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-
-              <div className="p-6 bg-slate-900 text-white flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-accent text-xs font-semibold uppercase tracking-wider">{lightboxImage.category}</span>
-                    <span className="bg-accent/20 text-accent text-[11px] font-bold px-2.5 py-0.5 rounded-full border border-accent/30 flex items-center gap-1">
-                      <Sparkles className="w-3 h-3" />
-                      Hasil Kerja CV Wilwa
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold">{lightboxImage.title}</h3>
-                  <p className="text-sm text-slate-400 mt-1">{lightboxImage.location}</p>
-                </div>
-                <a
-                  href="#contact"
-                  onClick={() => setLightboxImage(null)}
-                  className="px-6 py-2.5 rounded-full bg-accent text-primary font-bold text-sm hover:bg-yellow-400 transition-colors shrink-0 text-center"
-                >
-                  Konsultasi Sekarang
-                </a>
-              </div>
+            {/* Pure Photo Frame - Maximum Focus & Detail */}
+            <motion.div
+              initial={{ scale: 0.96, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.96, opacity: 0 }}
+              className="relative w-full max-w-6xl flex-1 flex items-center justify-center min-h-[45vh] max-h-[76vh] my-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <img
+                src={lightboxImage.image}
+                alt={lightboxImage.title}
+                className="w-auto h-full max-h-[76vh] max-w-full object-contain rounded-xl sm:rounded-2xl shadow-2xl drop-shadow-2xl select-none"
+              />
             </motion.div>
+
+            {/* Bottom Info Bar - Shifted down, clean & unobtrusive */}
+            <div
+              className="w-full max-w-6xl mt-3 p-4 sm:p-5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2">
+                  <span className="text-accent font-bold text-xs uppercase tracking-wider">
+                    {lightboxImage.category}
+                  </span>
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/25 text-accent text-[11px] font-semibold">
+                    <Sparkles className="w-3 h-3 text-accent" />
+                    Hasil Kerja CV Wilwa
+                  </span>
+                </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-white tracking-tight">
+                  {lightboxImage.title}
+                </h3>
+                <p className="text-xs text-slate-400">
+                  {lightboxImage.location}
+                </p>
+              </div>
+
+              <a
+                href="#contact"
+                onClick={() => setLightboxImage(null)}
+                className="px-6 py-2.5 rounded-full bg-accent hover:bg-yellow-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shrink-0 text-center flex items-center justify-center self-start sm:self-center active:scale-95"
+              >
+                Konsultasi Sekarang
+              </a>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

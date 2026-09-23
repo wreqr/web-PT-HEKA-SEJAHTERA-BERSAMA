@@ -47,23 +47,23 @@ const corporateServices = [
 
 export default function Services() {
   return (
-    <section id="services" className="py-24 bg-slate-50 relative overflow-hidden">
+    <section id="services" className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <div className="inline-block mb-4 px-4 py-1.5 bg-primary/5 border border-primary/10 text-primary font-semibold text-sm rounded-full">
+            <div className="inline-block mb-2 sm:mb-3 px-3.5 py-1 bg-primary/5 border border-primary/10 text-primary font-semibold text-xs sm:text-sm rounded-full">
               Produk & Layanan
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-2 sm:mb-3">
               Layanan Komprehensif untuk <span className="text-primary">Segala Skala</span>
             </h2>
-            <p className="text-slate-600 text-lg">
+            <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
               Kami menawarkan solusi konstruksi end-to-end baik untuk kebutuhan personal berupa hunian, maupun kebutuhan korporat skala besar.
             </p>
           </motion.div>
@@ -76,7 +76,7 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Tabs defaultValue="perusahaan" className="w-full">
-            <div className="flex justify-center mb-10">
+            <div className="flex justify-center mb-6 sm:mb-8">
               <TabsList className="grid w-full max-w-md grid-cols-2 p-1 sm:p-1.5 bg-slate-200/50 rounded-xl h-auto sm:h-14 gap-1 sm:gap-0">
                 <TabsTrigger value="individual" className="rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-xs sm:text-sm md:text-base font-medium h-full py-2 sm:py-0 border-none whitespace-normal text-center leading-tight">
                   Individual (Hunian)
