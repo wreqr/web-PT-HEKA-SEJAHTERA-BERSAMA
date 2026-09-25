@@ -76,13 +76,21 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Tabs defaultValue="perusahaan" className="w-full">
-            <div className="flex justify-center mb-6 sm:mb-8">
-              <TabsList className="grid w-full max-w-md grid-cols-2 p-1 sm:p-1.5 bg-slate-200/50 rounded-xl h-auto sm:h-14 gap-1 sm:gap-0">
-                <TabsTrigger value="individual" className="rounded-lg data-[state=active]:bg-white data-[state=active]:text-primary data-[state=active]:shadow-sm text-xs sm:text-sm md:text-base font-medium h-full py-2 sm:py-0 border-none whitespace-normal text-center leading-tight">
-                  Individual (Hunian)
+            <div className="flex justify-center mb-8 sm:mb-10">
+              <TabsList className="grid w-full max-w-lg grid-cols-2 p-1.5 bg-slate-200/70 border border-slate-300/60 rounded-2xl h-auto gap-1.5 shadow-inner">
+                <TabsTrigger
+                  value="individual"
+                  className="rounded-xl py-3 px-3 sm:px-5 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <Home className="w-4 h-4 shrink-0" />
+                  <span>Individual (Hunian)</span>
                 </TabsTrigger>
-                <TabsTrigger value="perusahaan" className="rounded-lg data-[state=active]:bg-primary data-[state=active]:text-white data-[state=active]:shadow-sm text-xs sm:text-sm md:text-base font-medium h-full py-2 sm:py-0 border-none whitespace-normal text-center leading-tight">
-                  Perusahaan (Komersial)
+                <TabsTrigger
+                  value="perusahaan"
+                  className="rounded-xl py-3 px-3 sm:px-5 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <Building className="w-4 h-4 shrink-0" />
+                  <span>Perusahaan (Komersial)</span>
                 </TabsTrigger>
               </TabsList>
             </div>
