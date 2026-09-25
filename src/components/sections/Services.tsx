@@ -49,7 +49,7 @@ export default function Services() {
   return (
     <section id="services" className="pt-10 pb-16 sm:pt-14 sm:pb-20 bg-slate-50 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
-        
+
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,11 +94,11 @@ export default function Services() {
                 </TabsTrigger>
               </TabsList>
             </div>
-            
+
             <TabsContent value="individual" className="mt-0">
               <div className="grid md:grid-cols-3 gap-6">
                 {individualServices.map((service, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -116,11 +116,11 @@ export default function Services() {
                 ))}
               </div>
             </TabsContent>
-            
+
             <TabsContent value="perusahaan" className="mt-0">
               <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {corporateServices.map((service, index) => (
-                  <motion.div 
+                  <motion.div
                     key={index}
                     initial={{ opacity: 0, scale: 0.95 }}
                     animate={{ opacity: 1, scale: 1 }}
