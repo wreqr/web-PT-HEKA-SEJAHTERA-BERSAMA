@@ -106,7 +106,7 @@ export default function Contact() {
               rel="noopener noreferrer"
               className="mt-4 block w-full text-center px-6 py-3.5 bg-green-500 hover:bg-green-600 text-white font-bold rounded-lg transition-colors shadow-lg shadow-green-500/20"
             >
-              Chat via WhatsApp Sekarang
+              Konsultasi via WhatsApp
             </motion.a>
           </div>
 

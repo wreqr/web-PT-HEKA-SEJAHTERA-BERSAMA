@@ -58,13 +58,13 @@ export default function Services() {
             transition={{ duration: 0.5 }}
           >
             <div className="inline-block mb-2 sm:mb-3 px-3.5 py-1 bg-primary/5 border border-primary/10 text-primary font-semibold text-xs sm:text-sm rounded-full">
-              Produk & Layanan
+              Layanan
             </div>
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-2 sm:mb-3">
               Layanan Komprehensif untuk <span className="text-primary">Segala Skala</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-              Kami menawarkan solusi konstruksi end-to-end baik untuk kebutuhan personal berupa hunian, maupun kebutuhan korporat skala besar.
+              Kami menawarkan beberapa jenis layanan untuk anda, sebagai berikut :
             </p>
           </motion.div>
         </div>

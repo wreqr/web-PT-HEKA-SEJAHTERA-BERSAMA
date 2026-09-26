@@ -189,13 +189,13 @@ export default function Portfolio() {
             className="max-w-2xl"
           >
             <div className="inline-block mb-4 px-4 py-1.5 bg-primary/5 border border-primary/10 text-primary font-semibold text-sm rounded-full">
-              Portofolio Kami
+              Portofolio
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
-              Bukti Nyata <span className="text-primary">Kinerja Kami</span>
+              Hasil <span className="text-primary">Kinerja Kami</span>
             </h2>
             <p className="text-slate-600 text-lg">
-              Kami telah menyelesaikan lebih dari 60+ proyek. Berikut adalah dokumentasi hasil kerja asli dan mahakarya konstruksi yang telah kami wujudkan.
+              Kami telah menyelesaikan lebih dari 60+ proyek. Berikut adalah dokumentasi hasil kerja dan mahakarya konstruksi yang telah kami wujudkan.
             </p>
           </motion.div>
           <motion.div
@@ -363,11 +363,10 @@ export default function Portfolio() {
                     setDirection(idx > currentSlide ? 1 : -1);
                     setCurrentSlide(idx);
                   }}
-                  className={`relative shrink-0 rounded-xl overflow-hidden aspect-[4/3] w-20 sm:w-28 transition-all duration-300 border-2 ${
-                    idx === currentSlide
-                      ? "border-accent scale-105 shadow-md ring-2 ring-accent/30"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
+                  className={`relative shrink-0 rounded-xl overflow-hidden aspect-[4/3] w-20 sm:w-28 transition-all duration-300 border-2 ${idx === currentSlide
+                    ? "border-accent scale-105 shadow-md ring-2 ring-accent/30"
+                    : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
                   aria-label={`Slide ${idx + 1}: ${slide.title}`}
                 >
                   <img
