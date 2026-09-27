@@ -284,13 +284,13 @@ export default function Portfolio() {
 
           {/* Thumbnail Carousel Strip */}
           <div className="mt-4 sm:mt-6">
-            <div className="flex items-center justify-between text-xs text-slate-500 mb-2 px-1">
+            <div className="flex items-center justify-center gap-2 text-xs sm:text-sm text-slate-500 mb-3 text-center px-1">
               <span>Pilih foto untuk melihat sudut lainnya ({wilwaSlides.length} foto tersedia):</span>
-              <span className="sm:hidden font-semibold text-primary">{currentSlide + 1} dari {wilwaSlides.length}</span>
+              <span className="sm:hidden font-semibold text-primary">({currentSlide + 1}/{wilwaSlides.length})</span>
             </div>
             <div
               ref={thumbnailsRef}
-              className="flex items-center gap-2.5 sm:gap-3 overflow-x-auto pb-3 pt-1 scrollbar-thin scrollbar-thumb-slate-200"
+              className="flex items-center justify-start sm:justify-center gap-2.5 sm:gap-3.5 overflow-x-auto pb-3 pt-1 scrollbar-thin scrollbar-thumb-slate-200"
             >
               {wilwaSlides.map((slide, idx) => (
                 <button
@@ -299,9 +299,9 @@ export default function Portfolio() {
                     setDirection(idx > currentSlide ? 1 : -1);
                     setCurrentSlide(idx);
                   }}
-                  className={`relative shrink-0 rounded-xl overflow-hidden aspect-[4/3] w-20 sm:w-28 transition-all duration-300 border-2 ${idx === currentSlide
-                    ? "border-accent scale-105 shadow-md ring-2 ring-accent/30"
-                    : "border-transparent opacity-60 hover:opacity-100"
+                  className={`relative shrink-0 rounded-xl overflow-hidden aspect-[4/3] w-20 sm:w-28 md:w-32 transition-all duration-300 border-2 cursor-pointer ${idx === currentSlide
+                    ? "border-accent scale-105 shadow-lg ring-2 ring-accent/40"
+                    : "border-transparent opacity-60 hover:opacity-100 hover:scale-102"
                     }`}
                   aria-label={`Slide ${idx + 1}: ${slide.title}`}
                 >
