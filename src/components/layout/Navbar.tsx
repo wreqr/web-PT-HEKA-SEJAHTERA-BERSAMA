@@ -37,9 +37,9 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           <a href="https://www.instagram.com/wilwakaryamandiri?stkn=MWhhMmZjd3V5Mm0xNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 group">
             <img 
-              src="/assets/images/merk.jpeg" 
+              src={isScrolled ? "/assets/images/logo-dark.png" : "/assets/images/logo-white.png"} 
               alt="Logo CV Wilwa Karya Mandiri" 
-              className="h-10 w-auto object-contain rounded-md shadow-sm"
+              className="h-10 w-10 object-contain transition-all duration-300 group-hover:scale-105"
             />
             <div className="flex flex-col">
               <span className={`font-bold text-lg leading-tight ${isScrolled ? "text-primary" : "text-white"}`}>

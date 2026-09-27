@@ -2,57 +2,34 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
 import { ArrowUpRight, ChevronLeft, ChevronRight, Sparkles, X, Maximize2 } from "lucide-react";
 
 interface WilwaSlide {
   id: number;
-  title: string;
-  category: string;
-  location: string;
   image: string;
-  description: string;
 }
 
 const wilwaSlides: WilwaSlide[] = [
   {
     id: 1,
-    title: "Pembangunan Rumah Tinggal Modern 2 Lantai",
-    category: "Fasad Eksterior (Siang)",
-    location: "Jawa Timur",
     image: "/assets/images/foto%20hasil%20kerja%20kami/1.jpeg",
-    description: "Desain fasad kontemporer 2 lantai dengan cantilever modern, panel tekstur vertikal, dan gerbang minimalis."
   },
   {
     id: 2,
-    title: "Desain Fasad & Konstruksi Hunian Eksklusif",
-    category: "Perspektif Sudut (Siang)",
-    location: "Jawa Timur",
     image: "/assets/images/foto%20hasil%20kerja%20kami/2.jpeg",
-    description: "Tampilan sudut arsitektur rumah mewah dengan aksen kurva halus dan dinding pembatas modern."
   },
   {
     id: 3,
-    title: "Pekerjaan Struktur & Fasad Bangunan Modern",
-    category: "Detail Struktur & Kanopi",
-    location: "Jawa Timur",
     image: "/assets/images/foto%20hasil%20kerja%20kami/3.jpeg",
-    description: "Struktur kanopi carport baja ekspos dengan kisi-kisi gerbang besi modern dan finishing presisi."
   },
   {
     id: 4,
-    title: "Tata Cahaya & Fasad Arsitektural Malam",
-    category: "Pencahayaan Malam (Tampak Depan)",
-    location: "Jawa Timur",
     image: "/assets/images/foto%20hasil%20kerja%20kami/4.jpeg",
-    description: "Sistem pencahayaan LED arsitektural tersembunyi yang menonjolkan estetika fasad di malam hari."
   },
   {
     id: 5,
-    title: "Desain Eksterior & Pencahayaan Hunian Modern",
-    category: "Pencahayaan Malam (Perspektif)",
-    location: "Jawa Timur",
     image: "/assets/images/foto%20hasil%20kerja%20kami/5.jpeg",
-    description: "Harmonisasi warm ambient lighting pada kanopi plafon kayu dan taman depan rumah."
   }
 ];
 
@@ -61,7 +38,7 @@ export default function Portfolio() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
-  const [lightboxImage, setLightboxImage] = useState<{ image: string; title: string; category: string; location: string } | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
   const thumbnailsRef = useRef<HTMLDivElement>(null);
 
   // Auto-slide every 5 seconds
@@ -185,7 +162,7 @@ export default function Portfolio() {
                 >
                   <img
                     src={current.image}
-                    alt={current.title}
+                    alt="Dokumentasi Hasil Kerja CV Wilwa"
                     className="w-full h-full object-cover"
                   />
                   {/* Subtle gradient vignette */}
@@ -203,7 +180,7 @@ export default function Portfolio() {
 
               {/* Fullscreen zoom button */}
               <button
-                onClick={() => setLightboxImage(current)}
+                onClick={() => setLightboxImage(current.image)}
                 className="absolute top-3 right-3 sm:top-5 sm:right-5 z-20 p-2 sm:p-2.5 rounded-full bg-black/60 hover:bg-primary text-white backdrop-blur-md transition-all shadow-lg border border-white/20 flex items-center gap-1.5"
                 aria-label="Lihat Layar Penuh"
                 title="Lihat Layar Penuh"
@@ -229,57 +206,6 @@ export default function Portfolio() {
               </button>
             </div>
 
-            {/* Dedicated Caption & Information Panel (Spacious & Clean) */}
-            <div className="p-5 sm:p-7 bg-slate-900 text-white border-t border-white/10">
-              <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-                <div className="max-w-3xl">
-                  <div className="flex flex-col sm:flex-row sm:items-center gap-1.5 sm:gap-2 mb-3">
-                    <span className="inline-block w-fit px-2.5 py-1 rounded-md bg-accent text-primary text-[10px] sm:text-xs font-bold uppercase tracking-wider">
-                      {current.category}
-                    </span>
-                    <span className="text-slate-400 text-xs sm:text-sm font-medium flex items-center gap-1.5">
-                      <span className="hidden sm:inline">•</span>
-                      <svg className="w-3.5 h-3.5 sm:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {current.location}
-                    </span>
-                  </div>
-                  <h4 className="text-lg sm:text-xl md:text-2xl font-bold text-white mb-2 leading-snug">
-                    {current.title}
-                  </h4>
-                  <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
-                    {current.description}
-                  </p>
-                </div>
-
-                {/* Counter and Navigation Controls */}
-                <div className="flex items-center justify-between md:flex-col md:items-end gap-3 mt-4 md:mt-0 pt-4 md:pt-0 border-t md:border-t-0 border-white/10 shrink-0">
-                  <span className="text-xs text-slate-400 font-medium">
-                    Foto <strong className="text-accent text-sm font-bold">{currentSlide + 1}</strong> dari {wilwaSlides.length}
-                  </span>
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => paginate(-1)}
-                      className="px-3 py-1.5 sm:p-2 rounded-lg sm:rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors flex items-center gap-1 text-xs"
-                      aria-label="Sebelumnya"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                      <span className="sm:hidden">Prev</span>
-                    </button>
-                    <button
-                      onClick={() => paginate(1)}
-                      className="px-3 py-1.5 sm:p-2 rounded-lg sm:rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors flex items-center gap-1 text-xs"
-                      aria-label="Berikutnya"
-                    >
-                      <span className="sm:hidden">Next</span>
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Thumbnail Carousel Strip */}
@@ -303,11 +229,11 @@ export default function Portfolio() {
                     ? "border-accent scale-105 shadow-lg ring-2 ring-accent/40"
                     : "border-transparent opacity-60 hover:opacity-100 hover:scale-102"
                     }`}
-                  aria-label={`Slide ${idx + 1}: ${slide.title}`}
+                  aria-label={`Slide ${idx + 1}`}
                 >
                   <img
                     src={slide.image}
-                    alt={slide.title}
+                    alt="Thumbnail Hasil Kerja"
                     className="w-full h-full object-cover"
                   />
                   <div className="absolute bottom-1 right-1 bg-black/70 px-1.5 py-0.5 rounded text-[10px] font-bold text-white">
@@ -316,6 +242,18 @@ export default function Portfolio() {
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Link to Dedicated Portfolio Gallery Page */}
+          <div className="mt-10 sm:mt-12 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center gap-3 px-7 sm:px-9 py-3.5 sm:py-4 rounded-full bg-primary hover:bg-primary/90 text-white font-bold text-sm sm:text-base shadow-xl shadow-primary/20 hover:shadow-2xl hover:scale-102 transition-all active:scale-95 group"
+            >
+              <Sparkles className="w-5 h-5 text-accent animate-pulse" />
+              <span>Jelajahi Galeri Portofolio Lengkap (Rumah Hunian, Cafe, & Rumah Kos)</span>
+              <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform text-accent" />
+            </Link>
           </div>
         </div>
 
@@ -349,47 +287,15 @@ export default function Portfolio() {
               initial={{ scale: 0.96, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.96, opacity: 0 }}
-              className="relative w-full max-w-6xl flex-1 flex items-center justify-center min-h-[45vh] max-h-[76vh] my-auto"
+              className="relative w-full max-w-6xl flex-1 flex items-center justify-center min-h-[45vh] max-h-[85vh] my-auto"
               onClick={(e) => e.stopPropagation()}
             >
               <img
-                src={lightboxImage.image}
-                alt={lightboxImage.title}
-                className="w-auto h-full max-h-[76vh] max-w-full object-contain rounded-xl sm:rounded-2xl shadow-2xl drop-shadow-2xl select-none"
+                src={lightboxImage}
+                alt="Dokumentasi Hasil Kerja"
+                className="w-auto h-full max-h-[85vh] max-w-full object-contain rounded-xl sm:rounded-2xl shadow-2xl drop-shadow-2xl select-none"
               />
             </motion.div>
-
-            {/* Bottom Info Bar - Shifted down, clean & unobtrusive */}
-            <div
-              className="w-full max-w-6xl mt-3 p-4 sm:p-5 rounded-2xl bg-slate-900/90 backdrop-blur-md border border-white/10 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-4 shrink-0"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <div className="space-y-1">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-accent font-bold text-xs uppercase tracking-wider">
-                    {lightboxImage.category}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-accent/10 border border-accent/25 text-accent text-[11px] font-semibold">
-                    <Sparkles className="w-3 h-3 text-accent" />
-                    Hasil Kerja CV Wilwa
-                  </span>
-                </div>
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-white tracking-tight">
-                  {lightboxImage.title}
-                </h3>
-                <p className="text-xs text-slate-400">
-                  {lightboxImage.location}
-                </p>
-              </div>
-
-              <a
-                href="#contact"
-                onClick={() => setLightboxImage(null)}
-                className="px-6 py-2.5 rounded-full bg-accent hover:bg-yellow-400 text-slate-950 font-bold text-xs sm:text-sm transition-all shadow-md shrink-0 text-center flex items-center justify-center self-start sm:self-center active:scale-95"
-              >
-                Konsultasi Sekarang
-              </a>
-            </div>
           </motion.div>
         )}
       </AnimatePresence>

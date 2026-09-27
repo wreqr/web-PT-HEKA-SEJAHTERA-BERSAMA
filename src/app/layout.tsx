@@ -13,11 +13,12 @@ export const metadata: Metadata = {
   keywords: ["Jasa Kontraktor Sidoarjo", "Kontraktor Surabaya", "Kontraktor Jawa Timur", "CV Wilwa Karya Mandiri", "Renovasi Rumah", "Pembangunan Gedung"],
   icons: {
     icon: [
-      { url: "/assets/images/merk.jpeg" },
-      { url: "/icon.jpeg" }
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/icon.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: "/assets/images/merk.jpeg",
-    apple: "/assets/images/merk.jpeg",
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
   },
 };
 

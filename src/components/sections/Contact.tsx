@@ -20,9 +20,9 @@ export default function Contact() {
           <div className="lg:col-span-4 space-y-6">
             <a href="https://www.instagram.com/wilwakaryamandiri?stkn=MWhhMmZjd3V5Mm0xNg%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 mb-6 hover:opacity-90 transition-opacity">
               <img
-                src="/assets/images/merk.jpeg"
+                src="/assets/images/logo-white.png"
                 alt="Logo CV Wilwa Karya Mandiri"
-                className="h-14 w-auto object-contain rounded-md bg-white p-1"
+                className="h-12 w-12 object-contain"
               />
               <div className="flex flex-col">
                 <span className="font-bold text-xl leading-tight text-white">
