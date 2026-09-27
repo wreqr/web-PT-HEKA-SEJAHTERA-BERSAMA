@@ -46,10 +46,16 @@ export default function Contact() {
           <div className="lg:col-span-3">
             <h3 className="font-bold text-lg mb-6 text-white border-b border-slate-700 pb-3 inline-block">Tautan Navigasi</h3>
             <ul className="space-y-4">
-              {['Beranda', 'Tentang Kami', 'Layanan', 'Portofolio', 'Klien'].map((item) => (
-                <li key={item}>
-                  <Link href={`#${item === 'Beranda' ? 'home' : item === 'Tentang Kami' ? 'about' : item === 'Layanan' ? 'services' : item === 'Portofolio' ? 'portfolio' : 'clients'}`} className="text-slate-300 hover:text-accent transition-colors flex items-center gap-2 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span> {item}
+              {[
+                { name: 'Beranda', href: '/#home' },
+                { name: 'Tentang Kami', href: '/#about' },
+                { name: 'Layanan & Portofolio', href: '/#services' },
+                { name: 'Klien', href: '/#clients' },
+                { name: 'FAQ (Tanya Jawab)', href: '/faq' },
+              ].map((item) => (
+                <li key={item.name}>
+                  <Link href={item.href} className="text-slate-300 hover:text-accent transition-colors flex items-center gap-2 text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-accent/50"></span> {item.name}
                   </Link>
                 </li>
               ))}

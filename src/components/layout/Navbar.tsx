@@ -6,11 +6,11 @@ import { Menu, X, Building2 } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { name: "Beranda", href: "#home" },
-  { name: "Tentang Kami", href: "#about" },
-  { name: "Layanan", href: "#services" },
-  { name: "Portofolio", href: "#portfolio" },
-  { name: "Klien", href: "#clients" },
+  { name: "Beranda", href: "/#home" },
+  { name: "Tentang Kami", href: "/#about" },
+  { name: "Layanan & Portofolio", href: "/#services" },
+  { name: "Klien", href: "/#clients" },
+  { name: "FAQ", href: "/faq" },
 ];
 
 export default function Navbar() {

@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Building2 } from "lucide-react";
+import { Building2, HelpCircle, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const clients = [
   { 
@@ -108,6 +109,32 @@ export default function Clients() {
             );
           })}
         </div>
+
+        {/* FAQ Link Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mt-14 max-w-4xl mx-auto bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-md flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left"
+        >
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-primary/10 text-primary flex items-center justify-center shrink-0">
+              <HelpCircle className="w-6 h-6 text-primary" />
+            </div>
+            <div>
+              <h3 className="text-lg font-bold text-slate-900">Masih Ada Pertanyaan Mengenai Layanan Kami?</h3>
+              <p className="text-sm text-slate-600">Pelajari seputar estimasi biaya, survei lokasi, masa garansi, hingga izin PBG/SLF.</p>
+            </div>
+          </div>
+          <Link
+            href="/faq"
+            className="px-6 py-3 rounded-full bg-primary hover:bg-primary/90 text-white font-semibold text-sm transition-all shadow-md shrink-0 flex items-center gap-2 group active:scale-95"
+          >
+            <span>Buka Halaman FAQ</span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </motion.div>
       </div>
     </section>
   );

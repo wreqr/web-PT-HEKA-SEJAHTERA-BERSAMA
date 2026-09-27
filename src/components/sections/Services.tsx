@@ -76,21 +76,25 @@ export default function Services() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <Tabs defaultValue="perusahaan" className="w-full">
-            <div className="flex justify-center mb-8 sm:mb-10">
-              <TabsList className="grid w-full max-w-lg grid-cols-2 p-1.5 bg-slate-200/70 border border-slate-300/60 rounded-2xl h-auto gap-1.5 shadow-inner">
+            <div className="flex justify-center mb-8 sm:mb-10 w-full px-1 sm:px-0">
+              <TabsList className="grid w-full max-w-lg grid-cols-2 p-1.5 bg-slate-200/80 border border-slate-300/70 rounded-2xl h-auto gap-1.5 shadow-inner">
                 <TabsTrigger
                   value="individual"
-                  className="rounded-xl py-3 px-3 sm:px-5 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex items-center justify-center gap-2"
+                  className="rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-1 sm:gap-2 whitespace-normal text-center leading-tight min-w-0"
                 >
                   <Home className="w-4 h-4 shrink-0" />
-                  <span>Individual (Hunian)</span>
+                  <span className="leading-tight">
+                    Individual <span className="text-[10px] sm:text-xs font-normal text-slate-500 block xs:inline sm:inline">(Hunian)</span>
+                  </span>
                 </TabsTrigger>
                 <TabsTrigger
                   value="perusahaan"
-                  className="rounded-xl py-3 px-3 sm:px-5 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex items-center justify-center gap-2"
+                  className="rounded-xl py-2.5 sm:py-3 px-2 sm:px-4 text-xs sm:text-sm md:text-base font-semibold transition-all duration-200 text-slate-600 hover:text-slate-900 data-active:bg-white data-active:text-primary data-active:shadow-sm cursor-pointer flex flex-col xs:flex-row sm:flex-row items-center justify-center gap-1 sm:gap-2 whitespace-normal text-center leading-tight min-w-0"
                 >
                   <Building className="w-4 h-4 shrink-0" />
-                  <span>Perusahaan (Komersial)</span>
+                  <span className="leading-tight">
+                    Perusahaan <span className="text-[10px] sm:text-xs font-normal text-slate-500 block xs:inline sm:inline">(Komersial)</span>
+                  </span>
                 </TabsTrigger>
               </TabsList>
             </div>
