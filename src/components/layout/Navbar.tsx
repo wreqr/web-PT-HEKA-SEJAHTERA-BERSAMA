@@ -52,8 +52,8 @@ export default function Navbar() {
           </a>
 
           {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <ul className="flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+            <ul className="flex items-center gap-5 xl:gap-6">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -69,7 +69,7 @@ export default function Navbar() {
             </ul>
             <Link
               href="#contact"
-              className="px-6 py-2.5 rounded-full bg-accent text-primary font-semibold text-sm hover:bg-yellow-400 transition-colors shadow-lg shadow-accent/20"
+              className="px-5 xl:px-6 py-2.5 rounded-full bg-accent text-primary font-semibold text-sm hover:bg-yellow-400 transition-colors shadow-lg shadow-accent/20 shrink-0"
             >
               Konsultasi Gratis
             </Link>
@@ -77,8 +77,9 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <button
-            className="md:hidden p-2 text-primary bg-white/80 rounded-md backdrop-blur-sm"
+            className="lg:hidden p-2 text-primary bg-white/90 hover:bg-white rounded-md backdrop-blur-sm transition-colors cursor-pointer shadow-sm"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle Menu"
           >
             {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -92,7 +93,7 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-4 md:hidden"
+            className="absolute top-full left-0 w-full bg-white shadow-lg border-t border-slate-100 py-4 px-4 lg:hidden"
           >
             <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (

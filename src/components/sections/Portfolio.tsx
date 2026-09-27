@@ -195,7 +195,7 @@ export default function Portfolio() {
               Hasil <span className="text-primary">Kinerja Kami</span>
             </h2>
             <p className="text-slate-600 text-lg">
-              Kami telah menyelesaikan lebih dari 60+ proyek. Berikut adalah dokumentasi hasil kerja dan mahakarya konstruksi yang telah kami wujudkan.
+              Kami telah menyelesaikan lebih dari 30+ proyek. Berikut adalah dokumentasi hasil kerja dan mahakarya konstruksi yang telah kami wujudkan.
             </p>
           </motion.div>
           <motion.div
